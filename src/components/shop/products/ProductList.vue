@@ -20,7 +20,7 @@ import chunk from 'chunk'
 
 export default {
   computed: mapState({
-    productRows: state => chunk(state.products.all, 3)
+    productRows: state => chunk(state.products.filtered, 3)
   }),
   methods: mapActions([
     'getProducts'

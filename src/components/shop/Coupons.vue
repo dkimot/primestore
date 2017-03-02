@@ -1,4 +1,4 @@
-<template>
+<template v-if="state.promotions.all[0]">
   <div class="mt-2">
     <h3>Promotions</h3>
 

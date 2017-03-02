@@ -18,10 +18,19 @@ export const getPromotions = ({ commit }) => {
   })
 }
 
+export const getCategories = ({ commit }) => {
+  api.getCategories(categories => {
+    commit('RECEIVE_CATEGORIES', categories)
+  })
+}
+
 export const addToCart = ({ commit }, product) => {
+  /*
   if (product.inventory > 0) {
     commit('ADD_TO_CART', product.id)
   }
+  */
+  commit('ADD_TO_CART', product.id)
 }
 
 export const removeFromCart = ({ commit }, product) => {
@@ -30,4 +39,8 @@ export const removeFromCart = ({ commit }, product) => {
 
 export const toggleCoupon = ({ commit }, coupon) => {
   commit('TOGGLE_COUPON', coupon)
+}
+
+export const toggleCategory = ({ commit }, category) => {
+  commit('TOGGLE_CATEGORY', category)
 }

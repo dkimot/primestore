@@ -26,7 +26,7 @@ export const subtotal = state => {
   return state.shoppingCart.productDiscount ? sum * 0.7 : sum
 }
 
-export const taxes = state => subtotal(state) * 0.005
+export const taxes = state => subtotal(state) * 0.0675
 
 export const shipping = state => {
   const shippings = cartProducts(state).map(item => item.shipping)
