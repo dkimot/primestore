@@ -24,6 +24,12 @@ export const getCategories = ({ commit }) => {
   })
 }
 
+export const getModal = ({ commit }) => {
+  api.getModal(modal => {
+    commit('RECEIVE_MODAL', modal)
+  })
+}
+
 export const addToCart = ({ commit }, product) => {
   /*
   if (product.inventory > 0) {
@@ -43,4 +49,17 @@ export const toggleCoupon = ({ commit }, coupon) => {
 
 export const toggleCategory = ({ commit }, category) => {
   commit('TOGGLE_CATEGORY', category)
+}
+
+export const openModal = ({ commit }, product) => {
+  commit('OPEN_MODAL', product)
+}
+
+export const closeModal = ({ commit }) => {
+  commit('CLOSE_MODAL')
+}
+
+export const addClose = ({ commit }, id) => {
+  commit('CLOSE_MODAL')
+  commit('ADD_TO_CART', id)
 }

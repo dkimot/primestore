@@ -3,20 +3,24 @@
     <img class="card-img-top" src="http://placehold.it/253x200" :alt="product.title">
     <div class="card-block">
       <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.price | formatMoney}} </p><!--- Stock: {{product.inventory}}</p>-->
-      <add-to-cart :product="product"></add-to-cart>
-      <p class="card-subheading">{{product.category}} | {{product.subCategory}}</p>
+      <p class="card-text" v-if="product.category === 'Desktops'">Starting at: {{product.price | formatMoney}} </p>
+      <p class="card-text" v-else>{{product.price | formatMoney}} </p><!--- Stock: {{product.inventory}}</p>-->
+      <add-to-cart :product="product"></add-to-cart><br />
+      <open-modal :product="product"></open-modal>
+      <p class="card-subheading" v-if="product.subCategory">{{product.category}} | {{product.subCategory}}</p>
+      <p class="card-subheading" v-if="!product.subCategory">{{product.category}}</p>
     </div>
   </div>
 </template>
 
 <script>
 import AddToCart from './AddToCart'
+import OpenModal from './OpenModal'
 
 export default {
   props: {
     product: Object
   },
-  components: { AddToCart }
+  components: { AddToCart, OpenModal }
 }
 </script>

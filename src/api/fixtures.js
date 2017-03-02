@@ -29,12 +29,17 @@ const promotions = [
 ]
 
 let categories = [
-  { 'id': 1, 'title': 'Components' },
-  { 'id': 2, 'title': 'Desktops' },
-  { 'id': 3, 'title': 'Drives' },
-  { 'id': 4, 'title': 'Accessories' },
-  { 'id': 5, 'title': 'Laptops' }
+  { 'id': 1, 'title': 'Components', 'active': false },
+  { 'id': 2, 'title': 'Desktops', 'active': false },
+  { 'id': 3, 'title': 'Drives', 'active': false },
+  { 'id': 4, 'title': 'Accessories', 'active': false },
+  { 'id': 5, 'title': 'Laptops', 'active': false }
 ]
+
+let modal = {
+  showModal: false,
+  data: null
+}
 
 // Get products
 const liveProducts = () => {
@@ -45,6 +50,16 @@ const liveProducts = () => {
       products.forEach((e) => {
         e.id = e.barcodeId
         e.title = e.slug
+        if (!e.price) {
+          // Find average cost
+          let total = { t: 0, i: 0 }
+          e.stockArray.forEach((e) => {
+            total.t += e.cost
+            total.i++
+          })
+          let av = total.t / total.i
+          e.price = (Math.ceil((av * e.info.markup * 0.01 + av) / 10) * 10) - 1
+        }
       })
     }).catch((err) => {
       console.error(err)
@@ -60,7 +75,7 @@ export default {
 
   getProducts (cb) {
     liveProducts()
-    setTimeout(() => cb(products), 500)
+    setTimeout(() => cb(products), 600)
   },
 
   getPromotions (cb) {
@@ -68,6 +83,10 @@ export default {
   },
 
   getCategories (cb) {
-    setTimeout(() => cb(categories), 1500)
+    setTimeout(() => cb(categories), 100)
+  },
+
+  getModal (cb) {
+    setTimeout(() => cb(modal), 100)
   }
 }

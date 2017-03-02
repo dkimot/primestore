@@ -1,6 +1,6 @@
 <template>
   <div class="mt-2">
-    <h3>Filter</h3>
+    <h3>Filter by Category</h3>
 
     <toggle
       :data="category"

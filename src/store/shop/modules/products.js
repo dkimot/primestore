@@ -24,22 +24,20 @@ const mutations = {
 
   TOGGLE_CATEGORY (state, category) {
     // Toggle, or add, category to filtering object
-    if (state.filtering[category.title]) {
-      state.filtering[category.title].active = !state.filtering[category.title].active
-    } else {
-      category.active = true
+    if (!state.filtering[category.title]) {
       state.filtering[category.title] = category
     }
     state.filtered = []
     for (let i = 0; i < state.all.length; i++) {
       let temp = state.all[i]
       if (state.filtering[temp.category]) {
-        console.log(true)
-        if (state.filtering[temp.category].active) {
-          console.log(state.filtering[temp.category].active)
+        if (!state.filtering[temp.category].active) {
           state.filtered.push(temp)
         }
       }
+    }
+    if (state.filtered.length === 0) {
+      state.filtered = state.all
     }
   }
 }

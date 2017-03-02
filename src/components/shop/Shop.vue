@@ -3,7 +3,7 @@
     <page-header></page-header>
 
     <div class="container">
-      <coupons></coupons>
+      <!--<coupons></coupons>-->
       <filter-products></filter-products>
 
       <div class="row mt-2">
@@ -16,6 +16,8 @@
       </div>
     </div>
 
+    <modal-list></modal-list>
+
   </div>
 </template>
 
@@ -25,6 +27,8 @@ import Coupons from './Coupons'
 import ProductList from './products/ProductList'
 import ShoppingCart from './shopping-cart/ShoppingCart'
 import FilterProducts from './FilterProducts'
+import SortProducts from './SortProducts'
+import ModalList from './modals/ModalList'
 
 export default {
   name: 'shop',
@@ -33,7 +37,9 @@ export default {
     Coupons,
     ProductList,
     ShoppingCart,
-    FilterProducts
+    FilterProducts,
+    SortProducts,
+    ModalList
   }
 }
 </script>
