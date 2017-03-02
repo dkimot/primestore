@@ -1,9 +1,6 @@
 import axios from 'axios'
 
 const profile = {
-  'firstName': 'Joe',
-  'lastName': 'Montana',
-  'limit': 850.00
 }
 
 let products = [
