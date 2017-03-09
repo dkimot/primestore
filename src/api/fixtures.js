@@ -32,7 +32,8 @@ let categories = [
   { 'id': 2, 'title': 'Desktops', 'active': false },
   { 'id': 3, 'title': 'Drives', 'active': false },
   { 'id': 4, 'title': 'Accessories', 'active': false },
-  { 'id': 5, 'title': 'Laptops', 'active': false }
+  { 'id': 5, 'title': 'Laptops', 'active': false },
+  { 'id': 6, 'title': 'Pre-Owned', 'active': false }
 ]
 
 let modal = {
