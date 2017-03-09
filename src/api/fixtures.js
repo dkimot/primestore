@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const apiAddress = 'http://api.primesystemsinc.com'
+
 const profile = {
 }
 
@@ -39,8 +41,8 @@ let modal = {
 }
 
 // Get products
-const liveProducts = () => {
-  axios.get('http://54.218.222.109:3030/products')
+const liveProducts = (cb) => {
+  axios.get(apiAddress + '/products')
     .then((res) => {
       products = res.data.data
       products.splice(0, 1)
@@ -58,6 +60,7 @@ const liveProducts = () => {
           e.price = (Math.ceil((av * e.info.markup * 0.01 + av) / 10) * 10) - 1
         }
       })
+      cb(products)
     }).catch((err) => {
       console.error(err)
     })
@@ -71,8 +74,7 @@ export default {
   },
 
   getProducts (cb) {
-    liveProducts()
-    setTimeout(() => cb(products), 600)
+    return liveProducts(cb)
   },
 
   getPromotions (cb) {
