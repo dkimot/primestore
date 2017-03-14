@@ -1,6 +1,6 @@
 <template>
   <div class="card text-xs-center">
-    <img class="card-img-top" src="http://placehold.it/253x200" :alt="product.title">
+    <img class="card-img-top" :src="product.imagePath" :alt="product.title" style="width: 253px; height: 200px;">
     <div class="card-block">
       <h5 class="card-title">{{product.title}}</h5>
       <p class="card-text" v-if="product.category === 'Desktops'">Starting at: {{product.price | formatMoney}} </p>
