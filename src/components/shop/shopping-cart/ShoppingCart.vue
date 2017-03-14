@@ -37,8 +37,7 @@ export default {
   },
   methods: {
     buy () {
-      window.alert('You bought :)')
-      window.location.reload()
+      window.alert('We are currently building our eCommerce server. Sorry for the inconvenience.')
     }
   }
 }
