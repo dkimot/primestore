@@ -3,7 +3,8 @@
     <img class="card-img-top" :src="product.imagePath" :alt="product.title" style="width: 253px; height: 200px;">
     <div class="card-block">
       <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text" v-if="product.category === 'Desktops'">Starting at: {{product.price | formatMoney}} </p>
+      <p class="card-text" v-if="!product.price">Please contact us for pricing. </p>
+      <p class="card-text" v-else-if="product.category === 'Desktops'">Starting at: {{product.price | formatMoney}} </p>
       <p class="card-text" v-else>{{product.price | formatMoney}} </p><!--- Stock: {{product.inventory}}</p>-->
       <add-to-cart :product="product"></add-to-cart><br />
       <open-modal :product="product"></open-modal>
