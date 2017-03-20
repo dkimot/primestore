@@ -1,6 +1,6 @@
 <template>
   <div class="card text-xs-center">
-    <img class="card-img-top" :src="product.imagePath" :alt="product.title" style="width: 253px; height: 200px;">
+    <img class="card-img-top" :src="product.imagePath" :alt="product.title">
     <div class="card-block">
       <h5 class="card-title">{{product.title}}</h5>
       <p class="card-text" v-if="!product.price">Please contact us for pricing. </p>
@@ -25,3 +25,11 @@ export default {
   components: { AddToCart, OpenModal }
 }
 </script>
+
+<style scoped>
+  img {
+    width: 253px;
+    height:200px;
+    padding: 3px 3px;
+  }
+</style>
