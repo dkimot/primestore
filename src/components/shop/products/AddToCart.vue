@@ -1,6 +1,6 @@
 <template>
   <button type="button" class="btn btn-primary"
-    :disabled="product.inventory"
+    :disabled="!product.price"
     @click="addToCart(product)">
     Add to cart
   </button>
