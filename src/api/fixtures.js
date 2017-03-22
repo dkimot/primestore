@@ -48,9 +48,9 @@ const liveProducts = (cb) => {
       products = res.data.data
       products.splice(0, 1)
       products.forEach((e) => {
-        e.id = e.barcodeId
+        e.id = e.barcodeId || e.name
         e.title = e.slug
-        if (!e.price) {
+        if (!e.price && e.stockArray) {
           // Find average cost
           let total = { t: 0, i: 0 }
           e.stockArray.forEach((e) => {

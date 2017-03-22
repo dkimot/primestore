@@ -4,7 +4,7 @@
       v-if="modal.showModal === true"
       track-by="id">
       <h3 slot="header">{{modal.data.title}}</h3>
-      <div slot="body">{{modal.data.description}}</p>
+      <div slot="body" v-html="modal.data.description"></div>
       <div slot="footer">
         <button class="btn btn-default float-left" @click="closeModal()">
           Back
